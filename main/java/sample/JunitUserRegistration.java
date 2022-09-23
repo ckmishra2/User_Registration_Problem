@@ -28,5 +28,12 @@ public class JunitUserRegistration {
 		Matcher matcher = pattern.matcher(emailIds);
 		return matcher.matches();
 	}
+	// method to validate mobilenumber
+	public boolean mobileNumber(String mobileNumber) {
+		regex = "[0-9]{0,2}[1-9] [0-9]{10}";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(mobileNumber);
+		return matcher.matches();
 
+}
 }
