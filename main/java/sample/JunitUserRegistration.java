@@ -36,9 +36,10 @@ public class JunitUserRegistration {
 		return matcher.matches();
 }
 	// method to validate password minimum 8 characters
-	//should have atleast 1 uppercase
+	//should have atleast 1 uppercase in password
+	//should have atleast 1 numeric number in password
 	public boolean password(String password) {
-		regex = "^[A-Za-z]{8}";
+		regex = "^[A-Za-z0-9]{8}";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(password);
 		return matcher.matches();
