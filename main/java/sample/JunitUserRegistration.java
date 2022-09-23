@@ -34,6 +34,11 @@ public class JunitUserRegistration {
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(mobileNumber);
 		return matcher.matches();
-
+}
+	public boolean password(String password) {
+		regex = "[A-Za-z]{8}";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(password);
+		return matcher.matches();
 }
 }

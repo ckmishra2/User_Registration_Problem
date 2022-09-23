@@ -56,4 +56,14 @@ public class JunitUserRegistrationTest {
 		boolean actualResult = junitUserRegistration.mobileNumber("919919819801");
 		Assert.assertEquals(false, actualResult);
 	}
+	@Test
+	public void givenPasswordProperReturnTrue() {
+		boolean actualResult = junitUserRegistration.password("abcAjhjr");
+		Assert.assertEquals(true, actualResult);
+	}
+	@Test
+	public void givenPasswordProperReturnFalse() {
+		boolean actualResult = junitUserRegistration.password("fgftr");
+		Assert.assertEquals(false, actualResult);
+	}
 }
