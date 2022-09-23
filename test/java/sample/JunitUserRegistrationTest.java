@@ -10,18 +10,30 @@ import static org.junit.Assert.*;
 
 public class JunitUserRegistrationTest {
 
-	  JunitUserRegistration junitUserRegistration = new JunitUserRegistration();
+	JunitUserRegistration junitUserRegistration = new JunitUserRegistration();
 
-	    @Test
-	    public void givenFirstNameIsProperReturnTrue() {
-	        boolean actualResult = junitUserRegistration.firstName("Chandrakala");
-	        Assert.assertEquals(true, actualResult);
-	    }
+	@Test
+	public void givenFirstNameIsProperReturnTrue() {
+		boolean actualResult = junitUserRegistration.firstName("Chandrakala");
+		Assert.assertEquals(true, actualResult);
+	}
 
-	    @Test
-	    public void givenFirstNameIsProperReturnFalse() {
-	        boolean actualResult = junitUserRegistration.firstName("chandrakala");
-	        Assert.assertEquals(false, actualResult);
-	    }
+	@Test
+	public void givenFirstNameIsProperReturnFalse() {
+		boolean actualResult = junitUserRegistration.firstName("chandrakala");
+		Assert.assertEquals(false, actualResult);
+	}
 
+	@Test
+	public void givenLastNameIsProperReturnFalse() {
+		boolean actualResult = junitUserRegistration.lastName("Mishra");
+		Assert.assertEquals(true, actualResult);
+
+	}
+
+	@Test
+	public void givenlastNameIsProperReturnFalse() {
+		boolean actualResult = junitUserRegistration.lastName("mishra");
+		Assert.assertEquals(false, actualResult);
+	}
 }
