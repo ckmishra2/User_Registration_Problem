@@ -58,7 +58,7 @@ public class JunitUserRegistrationTest {
 	}
 	@Test
 	public void givenPasswordProperReturnTrue() {
-		boolean actualResult = junitUserRegistration.password("abcAj8jr");
+		boolean actualResult = junitUserRegistration.password("ab@Aj8jr");
 		Assert.assertEquals(true, actualResult);
 	}
 	@Test
