@@ -1,69 +1,51 @@
 package sample;
 
-import static org.junit.Assert.assertTrue;
+import java.util.Arrays;
+import java.util.Collection;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+@RunWith(Parameterized.class)
 public class JunitUserRegistrationTest {
+	 String emailId;
+	 Boolean expectedResult;
+	 JunitUserRegistration JunitUserRegistration;
 
-	JunitUserRegistration junitUserRegistration = new JunitUserRegistration();
-
-	@Test
-	public void givenFirstNameIsProperReturnTrue() {
-		boolean actualResult = junitUserRegistration.firstName("Chandrakala");
-		Assert.assertEquals(true, actualResult);
-	}
-
-	@Test
-	public void givenFirstNameIsProperReturnFalse() {
-		boolean actualResult = junitUserRegistration.firstName("chandrakala");
-		Assert.assertEquals(false, actualResult);
+	@Before
+	public void initialize() {
+		JunitUserRegistration = new JunitUserRegistration();
 	}
 
-	@Test
-	public void givenLastNameIsProperReturnTrue() {
-		boolean actualResult = junitUserRegistration.lastName("Mishra");
-		Assert.assertEquals(true, actualResult);
-
+	public JunitUserRegistrationTest(String emailId, Boolean expectedResult) {
+		this.emailId = emailId;
+		this.expectedResult = expectedResult;
 	}
-
+//Parameterised Test to validate multiple entry for the Email Address.
+	@Parameterized.Parameters
+		   public static Collection emailId() {
+		      return Arrays.asList(new Object[][] {
+		         {"abc.xyz@bl.co.in", true},
+		         {"abc-100@yahoo.com", true},
+		         {"abc.100@yahoo.com", true},
+		         {"abc111@abc.com", true},
+		         {"xyz",false}
+		      });
+		   }
+	
 	@Test
-	public void givenlastNameIsProperReturnFalse() {
-		boolean actualResult = junitUserRegistration.lastName("mishra");
-		Assert.assertEquals(false, actualResult);
-	}
-	@Test
-	public void givenemailIdIsProperReturnTrue() {
-		boolean actualResult = junitUserRegistration.emailId("abc.xyz@bl.co.in");
-		Assert.assertEquals(true, actualResult);
-	}
-	@Test
-	public void givenemailIdIsProperReturnFalse() {
-		boolean actualResult = junitUserRegistration.emailId("abc.xyz@bl.co.in.");
-		Assert.assertEquals(false, actualResult);
-	}
-	@Test
-	public void givenmobileNumberProperReturnTrue() {
-		boolean actualResult = junitUserRegistration.mobileNumber("91 9919819801");
-		Assert.assertEquals(true, actualResult);
-	}
-	@Test
-	public void givenmobileNumberProperReturnFalse() {
-		boolean actualResult = junitUserRegistration.mobileNumber("919919819801");
-		Assert.assertEquals(false, actualResult);
-	}
-	@Test
-	public void givenPasswordProperReturnTrue() {
-		boolean actualResult = junitUserRegistration.password("ab@Aj8jr");
-		Assert.assertEquals(true, actualResult);
-	}
-	@Test
-	public void givenPasswordProperReturnFalse() {
-		boolean actualResult = junitUserRegistration.password("fgftr");
-		Assert.assertEquals(false, actualResult);
+	public void isemailIdProperReturnTrue() {
+		  System.out.println("email id is : " + emailId);
+	      Assert.assertEquals(expectedResult, JunitUserRegistration.validateEmailId(emailId));
+		
 	}
 }
+
